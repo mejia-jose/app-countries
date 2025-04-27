@@ -1,6 +1,7 @@
 import Logo from '../assets/images/logo.png';
 import Icons from '../components/Icons';
 
+/** Permite manejar el componente Header de la aplicación */
 function Header()
 {
   return (

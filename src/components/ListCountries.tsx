@@ -1,5 +1,4 @@
 
-import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 
@@ -7,19 +6,17 @@ import { Card,CardContent,CardHeader,CardTitle} from "./ui/Card"
 import { ICountry,TFilterCountries } from "../types/country/country";
 import { GET_COUNTRIES } from "../graphql/queries";
 import ErrorCountries from "./ErrorComponent";
-import { IFormProps } from "./Form";
+import { IFormProps } from "../types/forms/forms";
 
- 
+/** Componente que consulta la información de los paises, filtra y renderiza **/
 export function ListCountries(filterData : IFormProps)
 {
     console.log(filterData);
-    const search = 'Col';
+    const search = '';
 
-    const filter: TFilterCountries = search 
-    ? { 
-        name: { regex: `.*${search}.*` } } 
-    : {};
+    const filter: TFilterCountries = search ? { name: { regex: `.*${search}.*` } } : {};
 
+    /**Se realiza la consulta para obtener el listado de los paises **/
     const { loading, error, data } = useQuery<{ countries: ICountry[] }>(GET_COUNTRIES,{ variables : {filter} });
 
     if (loading) return <div className="text-center">Loading...</div>;

@@ -8,6 +8,7 @@ import Home from '../pages/Home';
 import Detail from '../pages/Detail';
 import NotFound from '../pages/404';
 
+/** Permite manejar las rutas de la aplicación **/
 function AppRouter() {
 
   const [loading, setLoading] = useState(true);
@@ -33,5 +34,4 @@ function AppRouter() {
     </div> 
   );
 }
-
 export default AppRouter;

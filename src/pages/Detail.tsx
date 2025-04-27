@@ -5,6 +5,7 @@ import Footer from '../layouts/Footer';
 import DetailCountry from '../components/DetailCountry';
 import { Button } from '../components/ui/Button';
 
+/** Componente de la página para mostrar el detalle de un páis **/
 const Detail = () =>
 {
   const { code } = useParams<{ code: string}>();

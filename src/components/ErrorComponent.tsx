@@ -1,17 +1,10 @@
-import React from 'react';
-
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/Card";
 import Error from '../assets/images/error.gif';
 import NotContent from '../assets/images/not_content.svg';
+import { ErrorLoadingCountries } from "../types/errors/error";
 
-type ErrorLoadingCountries =
-{
-  error: boolean;
-  messages?: string;
-  title?:string
-}
-
-const ErrorCountries: React.FC<ErrorLoadingCountries> = ({error,messages, title}) =>
+/** Componente para mostrar errores y cuando no se encuentran países. **/
+export function ErrorComponent({error,messages,title}: ErrorLoadingCountries)
 {
   const messageTitle = title ?? 'Error al obtener el listado de países.';
   return(
@@ -46,4 +39,4 @@ const ErrorCountries: React.FC<ErrorLoadingCountries> = ({error,messages, title}
   )
 }
 
-export default ErrorCountries;
+export default ErrorComponent;

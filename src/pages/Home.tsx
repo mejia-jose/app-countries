@@ -6,6 +6,7 @@ import { useState } from "react";
 
 function Home()
 {
+  /** Manejo del estado de los campos del formulario de filtros **/
   const [filterData, setFilterData] = useState<{ 
     search?:string, 
     continent?: string, 
@@ -16,6 +17,7 @@ function Home()
     setFilterData(data);
   };
   
+  /** Componente que renderiza el listado de los países de la app **/
   return (
     <div>
       <Header />

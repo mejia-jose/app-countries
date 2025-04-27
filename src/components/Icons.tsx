@@ -1,10 +1,9 @@
-import React from 'react';
 import { FaTwitter, FaYoutube, FaFacebook } from 'react-icons/fa'; 
 
 import { IconProps } from '../types/icons/IconProps';
 
-
-const Icons: React.FC<IconProps> = ({ icon, size, color = 'black', link }) => 
+/** Permite manejar el componente de Iconos de la aplicación **/
+export function Icons({ icon, size, color = 'black', link } : IconProps)
 {
   let IconComponent;
   switch (icon) 
@@ -27,6 +26,5 @@ const Icons: React.FC<IconProps> = ({ icon, size, color = 'black', link }) =>
       <IconComponent size={size} color={color} />
     </a>
   );
-};
-
+}
 export default Icons;

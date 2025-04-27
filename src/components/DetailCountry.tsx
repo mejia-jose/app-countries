@@ -10,8 +10,11 @@ type Props =
 {
   id?: string;
 }  
-const DetailCountry: React.FC<Props> = ({id}) => 
+
+/** Este componente permite consultar la información de una país especifico y renderiza la información **/
+export function DetailCountry({id}: Props)
 {
+    /** Consulta que obtiene el detalle del país seleccionado  **/
     const { loading, error, data } = useQuery<{ country: IDetailCountry }>(GET_DETAIL_COUNTRY,
     {
         variables: {code:id}
@@ -25,7 +28,7 @@ const DetailCountry: React.FC<Props> = ({id}) =>
     return (
         <>
             <Card className="h-auto bg-card mb-2 rounded-xl border text-card-foreground flex flex-col gap-6 p-4 
-             w-full md:w-[40vw] lg:w-[40vw] xl:w-[40vw]">
+                w-full md:w-[40vw] lg:w-[40vw] xl:w-[40vw]">
                 <CardContent>
                 <div key={code} className="bg-white rounded-lg max-w-md mx-auto text-left">
                     <div className="flex items-center justify-start space-x-4 mb-4">
@@ -48,6 +51,6 @@ const DetailCountry: React.FC<Props> = ({id}) =>
             </Card>
         </>
     );
-};
+}
 
 export default DetailCountry;

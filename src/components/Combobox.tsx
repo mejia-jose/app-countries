@@ -1,3 +1,4 @@
+/** Componente que permite manejar el llenado dinamico de las listas desplegbles y el manejo del estado de estas. */
 import * as React from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { cn } from "../lib/utils";
@@ -15,22 +16,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "./ui/Popover";
+import {ISelectProps} from '../types/forms/selects/selects';
 
-type DataProps = 
+export function Combobox({ data, text, valor, onValueChange } : ISelectProps)
 {
-  name?: string;
-  code: string;
-  currency?: string;
-};
-
-interface ISelectProps {
-  data: DataProps[];
-  text: string;
-  valor?: string;
-  onValueChange?: (value: string) => void;
-}
-
-const Combobox: React.FC<ISelectProps> = ({ data, text, valor, onValueChange }) => {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState<string>(valor || "");
 
@@ -86,6 +75,6 @@ const Combobox: React.FC<ISelectProps> = ({ data, text, valor, onValueChange }) 
       </PopoverContent>
     </Popover>
   );
-};
+}
 
 export default Combobox;

@@ -1,4 +1,4 @@
-/** Se define el cliente para consumir la api **/
+/** Configuración de Apollo Client para consumir la API GraphQL. */
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 
 export const client = new ApolloClient(
