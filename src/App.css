@@ -85,49 +85,6 @@ footer
   width: 100%;
 }
 
-.scroll-container 
-{
-  max-height: 150vh; 
-  padding-right: 12px;
-  border: lightblue;
-  border-radius: 20px;
-}
-
-/* Personalización del scroll vertical en WebKit (Chrome, Safari, etc.) */
-.scroll-container::-webkit-scrollbar 
-{
-  width: 4px; /* Ancho del scroll */
-}
-
-.scroll-container::-webkit-scrollbar-track 
-{
-  background: transparent;
-}
-
-.scroll-container::-webkit-scrollbar-thumb 
-{
-  /* Color del scroll */
-  background: #003366;
-  /* Bordes redondeados del thumb */
-  border-radius: 20px;
-}
-
-/* Personalización del scroll vertical en Firefox */
-.scroll-container 
-{
-  /* Hacer el scroll delgado en Firefox */
-  scrollbar-width: thin; 
-  /* Color del scroll y fondo del track */
-  scrollbar-color: #003366 transparent;
-}
-
-/* Ocultar el scroll horizontal */
-.scroll-container 
-{
-  /* Deshabilita el scroll horizontal */
-  overflow-x: hidden;
-}
-
 .btn-color
 {
   background-color: #003366;

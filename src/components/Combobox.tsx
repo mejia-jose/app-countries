@@ -1,9 +1,6 @@
-"use client"
-
-import * as React from "react"
-import { Check, ChevronsUpDown } from "lucide-react"
-
-import { cn } from "../lib/utils"
+import * as React from "react";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { cn } from "../lib/utils";
 import { Button } from "./ui/Button";
 import {
   Command,
@@ -12,30 +9,38 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "./ui/Command"
+} from "./ui/Command";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "./ui/Popover"
+} from "./ui/Popover";
 
-type DataProps =
+type DataProps = 
 {
   name?: string;
   code: string;
   currency?: string;
-}
+};
 
-interface SelectProps 
-{
+interface ISelectProps {
   data: DataProps[];
   text: string;
+  valor?: string;
+  onValueChange?: (value: string) => void;
 }
 
-const Combobox : React.FC<SelectProps> = ({data,text}) =>
-{
-  const [open, setOpen] = React.useState(false)
-  const [value, setValue] = React.useState("")
+const Combobox: React.FC<ISelectProps> = ({ data, text, valor, onValueChange }) => {
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState<string>(valor || "");
+
+  const handleValueChange = (currentValue: string) => {
+    setSelectedValue(currentValue);
+    if (onValueChange) {
+      onValueChange(currentValue);
+    }
+    setOpen(false);
+  };
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -47,8 +52,8 @@ const Combobox : React.FC<SelectProps> = ({data,text}) =>
           className="w-90 justify-between"
         >
           {
-            value 
-              ? (data.find((item) => item.code === value)?.name || data.find((item) => item.code === value)?.currency)
+            selectedValue 
+              ? (data.find((item) => item.code === selectedValue)?.name || data.find((item) => item.code === selectedValue)?.currency)
               : text + "..."
           }
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -64,18 +69,15 @@ const Combobox : React.FC<SelectProps> = ({data,text}) =>
                 <CommandItem
                   key={item.code}
                   value={item.code}
-                  onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue)
-                    setOpen(false)
-                  }}
+                  onSelect={() => handleValueChange(item.code)}
                 >
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      value === item.code ? "opacity-100" : "opacity-0"
+                      selectedValue === item.code ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  { item.currency ? item.currency : item.name}
+                  {item.currency ? item.currency : item.name}
                 </CommandItem>
               ))}
             </CommandGroup>
@@ -83,7 +85,7 @@ const Combobox : React.FC<SelectProps> = ({data,text}) =>
         </Command>
       </PopoverContent>
     </Popover>
-  )
-}
+  );
+};
 
 export default Combobox;
