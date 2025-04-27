@@ -21,8 +21,9 @@ import {
 
 type DataProps =
 {
-  label: string;
-  value: string;
+  name?: string;
+  code: string;
+  currency?: string;
 }
 
 interface SelectProps 
@@ -45,9 +46,11 @@ const Combobox : React.FC<SelectProps> = ({data,text}) =>
           aria-expanded={open}
           className="w-90 justify-between"
         >
-          {value
-            ? data.find((item) => item.value === value)?.label
-            : text+"..."}
+          {
+            value 
+              ? (data.find((item) => item.code === value)?.name || data.find((item) => item.code === value)?.currency)
+              : text + "..."
+          }
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -59,8 +62,8 @@ const Combobox : React.FC<SelectProps> = ({data,text}) =>
             <CommandGroup>
               {data.map((item) => (
                 <CommandItem
-                  key={item.value}
-                  value={item.value}
+                  key={item.code}
+                  value={item.code}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue)
                     setOpen(false)
@@ -69,10 +72,10 @@ const Combobox : React.FC<SelectProps> = ({data,text}) =>
                   <Check
                     className={cn(
                       "mr-2 h-4 w-4",
-                      value === item.value ? "opacity-100" : "opacity-0"
+                      value === item.code ? "opacity-100" : "opacity-0"
                     )}
                   />
-                  {item.label}
+                  { item.currency ? item.currency : item.name}
                 </CommandItem>
               ))}
             </CommandGroup>

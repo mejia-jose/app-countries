@@ -2,6 +2,7 @@ import { Button } from "./ui/Button";
 //import { Combobox } from "./Combobox";
 import { Input } from "./ui/Input";
 import SelectContinents from "./SelectContinent";
+import SelectCurrency from "./SelectCurrency";
 
 const FormSearch = () =>
 {
@@ -15,7 +16,7 @@ const FormSearch = () =>
                 <SelectContinents />
             </div>
             <div className="flex-1">
-                <SelectContinents />
+                <SelectCurrency />
             </div>
             <div className="flex-1 flex-1">
                 <Button className="px-6 py-2 text-white rounded-md">Buscar</Button>

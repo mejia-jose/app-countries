@@ -69,11 +69,28 @@
 main {
   flex: 1;
 }
-/* footer {
-  background: #333;
-  color: white;
-  padding: 20px;
-} */
+
+.scroll-sticky 
+{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px; 
+  z-index: 100;
+  /* Define una altura máxima para que se active el scroll si es necesario */
+  max-height: 90vh;
+  /* Permite el scroll vertical del contenido */
+  overflow-y: scroll;
+  /* Oculta el scroll en Firefox */
+  scrollbar-width: none; 
+  /* Oculta el scroll en Internet Explorer/Edge */
+  -ms-overflow-style: none;
+}
+
+.scroll-sticky::-webkit-scrollbar 
+{
+  /* Oculta el scroll en navegadores basados en WebKit (Chrome, Safari, Opera) */
+  display: none; 
+}
 
 /*****************FOOTER ***************/
 footer 
@@ -86,9 +103,53 @@ footer
   justify-content: center;
   line-height: 20px; 
   clear: both;
-  position: relative;
-  /* display: grid;
-  min-height: 10dvh;
-  grid-template-rows: auto 1fr auto; */
+  display: grid;
+  min-height: 5dvh;
+  grid-template-rows: auto 1fr auto; 
+  position: -webkit-sticky;
+  bottom: 0px;
+  width: 100%;
+}
 
+.scroll-container 
+{
+  max-height: 150vh; 
+  padding-right: 12px;
+  border: lightblue;
+  border-radius: 20px;
+}
+
+/* Personalización del scroll vertical en WebKit (Chrome, Safari, etc.) */
+.scroll-container::-webkit-scrollbar 
+{
+  width: 4px; /* Ancho del scroll */
+}
+
+.scroll-container::-webkit-scrollbar-track 
+{
+  background: transparent;
+}
+
+.scroll-container::-webkit-scrollbar-thumb 
+{
+  /* Color del scroll */
+  background: #003366;
+  /* Bordes redondeados del thumb */
+  border-radius: 20px;
+}
+
+/* Personalización del scroll vertical en Firefox */
+.scroll-container 
+{
+  /* Hacer el scroll delgado en Firefox */
+  scrollbar-width: thin; 
+  /* Color del scroll y fondo del track */
+  scrollbar-color: #003366 transparent;
+}
+
+/* Ocultar el scroll horizontal */
+.scroll-container 
+{
+  /* Deshabilita el scroll horizontal */
+  overflow-x: hidden;
 }

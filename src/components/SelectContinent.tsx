@@ -1,41 +1,15 @@
+import { useQuery } from "@apollo/client";
 import Combobox from "./Combobox";
-
-
-const continents = [
-    {
-        value: "africa",
-        label: "África",
-    },
-    {
-        value: "antarctica",
-        label: "Antártida",
-    },
-    {
-        value: "asia",
-        label: "Asia",
-    },
-    {
-        value: "europe",
-        label: "Europa",
-    },
-    {
-        value: "north-america",
-        label: "América del Norte",
-    },
-    {
-        value: "south-america",
-        label: "América del Sur",
-    },
-    {
-        value: "oceania",
-        label: "Oceanía",
-    },
-];
+import { GET_CONTINENTS } from "../graphql/queries";
+import { Continents } from "../types/continent/continent";
 
 const SelectContinents = () =>
 {
+   const {  data } = useQuery<Continents>(GET_CONTINENTS);
+
+   const info = (data?.continents) ? data?.continents : [];
    return(
-    <Combobox data={continents} text="Selecciona un continente." />
+     <Combobox data={info} text="Seleccione un continente." /> 
    )
 }
 

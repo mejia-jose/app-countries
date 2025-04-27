@@ -7,8 +7,8 @@ function Header()
     <div className="toolbar bg-gray-800 text-white p-4 relative">
         <div className="container mx-auto flex flex-wrap items-center justify-between">
             <div className="flex items-center space-x-4 md:space-x-4">
-                <img style={{width: '4vw'}} className="w-16 h-auto md:w-32" alt="My Cinema Plus" src={Logo} />
-                <span className="text-lg font-semibold md:text-xl">Word Explorer: Explora y Descubre los Países del Mundo</span>
+                <img style={{width: '4vw'}} className="w-16 h-auto md:w-32" alt="World Explorer" src={Logo} />
+                <span className="text-lg font-semibold md:text-xl">World Explorer: Explora y Descubre los Países del Mundo</span>
             </div>
         
             <div className="hidden md:flex items-center gap-4">

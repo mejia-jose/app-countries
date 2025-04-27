@@ -8,3 +8,20 @@ export interface Country
     capital?: string;
     currency?: string,
 }
+
+export type FilterCountries =
+{
+    code?: { eq?: string };
+    name?: { regex?: string };
+    continent?: { in?: string[] };
+    currency?: { regex?: string };
+}
+
+export interface Currency
+{
+  countries: Array<
+  {
+    currency?: string;
+    code:string
+  }>
+}
