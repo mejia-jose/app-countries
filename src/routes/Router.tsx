@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import '../App.css';
 import '../index.css';
 import Loanding from '../layouts/Loanding';
 import Home from '../pages/Home';
+import NotFound from '../pages/404';
 
 function AppRouter() {
 
@@ -23,6 +25,7 @@ function AppRouter() {
       <Router>
         <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
     </div> 
