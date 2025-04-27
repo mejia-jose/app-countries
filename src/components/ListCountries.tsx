@@ -4,9 +4,9 @@ import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 
 import { Card,CardContent,CardHeader,CardTitle} from "./ui/Card"
-import { Country,FilterCountries } from "../types/country/country";
+import { ICountry,TFilterCountries } from "../types/country/country";
 import { GET_COUNTRIES } from "../graphql/queries";
-import ErrorCountries from "./ErrorCountries";
+import ErrorCountries from "./ErrorComponent";
 
   
 const ListCountries = () => 
@@ -18,12 +18,12 @@ const ListCountries = () =>
     }
     const search = '';
 
-    const filter: FilterCountries = search 
+    const filter: TFilterCountries = search 
     ? { 
         name: { regex: `.*${search}.*` } } 
     : {};
 
-    const { loading, error, data } = useQuery<{ countries: Country[] }>(GET_COUNTRIES,{ variables : {filter} });
+    const { loading, error, data } = useQuery<{ countries: ICountry[] }>(GET_COUNTRIES,{ variables : {filter} });
 
     if (loading) return <div className="text-center">Loading...</div>;
     if (error) return <div> <ErrorCountries messages={error.message} error={true}/> </div>;

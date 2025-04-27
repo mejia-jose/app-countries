@@ -34,3 +34,24 @@ query GetCurrencies
     code
   }
 }`;
+
+/** Permite obtener la información a detalle de un país **/
+export const GET_DETAIL_COUNTRY = gql`
+query GetDetailCountry($code: ID!)
+{
+  country(code: $code) 
+  {
+    code
+    name
+    emoji
+    capital
+    currency
+    continent {
+      name
+    }
+    languages {
+      name
+    }
+    phone
+  }
+}`;

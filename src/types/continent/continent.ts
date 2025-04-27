@@ -1,13 +1,13 @@
 /** Se definen las interfaces y los tipos para los continentes **/
 
-interface PropertiesContinent
+interface IPropertiesContinent
 {
    code: string;
    name: string;
 }
 
-export interface Continents
+export interface IContinents
 {
-    continents: PropertiesContinent[];
+    continents: IPropertiesContinent[];
 }
 

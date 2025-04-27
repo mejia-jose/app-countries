@@ -1,11 +1,11 @@
 import { useQuery } from "@apollo/client";
 import Combobox from "./Combobox";
 import { GET_CONTINENTS } from "../graphql/queries";
-import { Continents } from "../types/continent/continent";
+import { IContinents } from "../types/continent/continent";
 
 const SelectContinents = () =>
 {
-   const {  data } = useQuery<Continents>(GET_CONTINENTS);
+   const {  data } = useQuery<IContinents>(GET_CONTINENTS);
 
    const info = (data?.continents) ? data?.continents : [];
    return(
