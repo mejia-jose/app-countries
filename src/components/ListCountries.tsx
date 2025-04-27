@@ -41,7 +41,7 @@ const ListCountries = () =>
                             <div className="text-4xl mb-2">{country.emoji}</div>
                             <p>Capital: {country.capital || 'N/A'}</p>
                             <Link to={`/country/${country.code}`}
-                                className="mt-2 inline-block text-blue-500 hover:underline">
+                                className="mt-2 inline-block color-text hover:underline">
                                 Ver más información
                             </Link>
                         </div>

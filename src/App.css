@@ -66,32 +66,6 @@
   opacity: 0.8;
 }
 
-main {
-  flex: 1;
-}
-
-.scroll-sticky 
-{
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px; 
-  z-index: 100;
-  /* Define una altura máxima para que se active el scroll si es necesario */
-  max-height: 90vh;
-  /* Permite el scroll vertical del contenido */
-  overflow-y: scroll;
-  /* Oculta el scroll en Firefox */
-  scrollbar-width: none; 
-  /* Oculta el scroll en Internet Explorer/Edge */
-  -ms-overflow-style: none;
-}
-
-.scroll-sticky::-webkit-scrollbar 
-{
-  /* Oculta el scroll en navegadores basados en WebKit (Chrome, Safari, Opera) */
-  display: none; 
-}
-
 /*****************FOOTER ***************/
 footer 
 {
@@ -152,4 +126,17 @@ footer
 {
   /* Deshabilita el scroll horizontal */
   overflow-x: hidden;
+}
+
+.btn-color
+{
+  background-color: #003366;
+  color: #fff;
+  font-weight: 700;
+}
+
+.color-text
+{
+  color: #003366;
+  font-weight: 600;
 }
