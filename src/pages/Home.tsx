@@ -1,6 +1,6 @@
 import Header from "../layouts/Header";
 import Footer from "../layouts/Footer";
-import CardComponent from "../components/Card";
+import ListCountries from "../components/ListCountries";
 import FormSearch from "../components/Form";
 
 function Home()
@@ -35,14 +35,7 @@ function Home()
                   
                   {/* Tarjetas de contenido */}
                   <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    <CardComponent />   
-                    <CardComponent /> 
-                    <CardComponent /> 
-                    <CardComponent /> 
-                    <CardComponent /> 
-                    <CardComponent /> 
-                    <CardComponent /> 
-                    <CardComponent /> 
+                    <ListCountries />   
                   </div>
                   
                   {/* Paginación */}
