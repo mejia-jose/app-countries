@@ -5,6 +5,7 @@ import '../App.css';
 import '../index.css';
 import Loanding from '../layouts/Loanding';
 import Home from '../pages/Home';
+import Detail from '../pages/Detail';
 import NotFound from '../pages/404';
 
 function AppRouter() {
@@ -25,6 +26,7 @@ function AppRouter() {
       <Router>
         <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/country/:code" element={<Detail />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
