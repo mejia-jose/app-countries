@@ -23,7 +23,7 @@ const Detail = () =>
                     <Button asChild
                     className="mt-6 inline-flex items-center btn-color text-white py-2 px-4 rounded hover:bg-blue-600"
                     variant="default"
-                    > <a href="/">{/* <IconComponent size={18} className="mr-2" /> */} Regresar</a>
+                    > {/* <a href="/"><IconComponent size={18} className="mr-2" /> Regresar</a> */}
                     </Button>
                 </div>
                 <div className="flex items-center justify-center h-auto p-4 bg-gray-100">
