@@ -1,6 +1,6 @@
 import {useNavigate } from "react-router-dom";
 
-import { Card,/* CardContent,CardHeader,CardTitle */} from "./ui/Card"
+import { Card,CardContent,CardHeader,CardTitle} from "./ui/Card"
 import ErrorCountries from "./ErrorComponent";
 import { IFormPropsUnique } from "../types/forms/forms";
 import IconsServices from "../services/icons/IconsServices";
@@ -31,18 +31,18 @@ export function ListCountries(filters : IFormPropsUnique)
                 className="cursor-pointer"
                 onClick={() => navigate(`/country/${country.code}`)}
                 >
-               {/*  <CardHeader>
-                    <CardTitle>{country.name}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                    <div className="">
-                    <div className="text-4xl mb-2">{country.emoji}</div>
-                    <p>Capital: {country.capital || 'N/A'}</p>
-                    <span className="mt-2 inline-flex items-center color-text hover:underline">
-                        <IconComponent size={20} className="mr-2" /> Ver detalle
-                    </span>
-                    </div>
-                </CardContent> */}
+                    <CardHeader>
+                        <CardTitle>{country.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <div>
+                            <div className="text-4xl mb-2">{country.emoji}</div>
+                            <p>Capital: {country.capital || 'N/A'}</p>
+                            <span className="mt-2 inline-flex items-center color-text hover:underline">
+                                <IconComponent size={20} className="mr-2" /> Ver detalle
+                            </span>
+                        </div>
+                    </CardContent>
                 </Card>
             ))}
             </div>

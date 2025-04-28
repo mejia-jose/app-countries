@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
-import { GET_CONTINENTS, GET_COUNTRIES, GET_CURRENCIES } from "../../graphql/queries";
-import { ICountry, ICurrency, TFilterCountries } from "../../types/country/country";
+
+import { GET_CONTINENTS, GET_COUNTRIES, GET_CURRENCIES, GET_DETAIL_COUNTRY } from "../../graphql/queries";
+import { DetailId, ICountry, ICurrency, IDetailCountry, TFilterCountries } from "../../types/country/country";
 import { IFormPropsUnique } from "../../types/forms/forms";
 import { IContinents } from "../../types/continent/continent";
 
@@ -27,6 +28,12 @@ export function ApiGetCountries(filters: IFormPropsUnique)
     }
 
     return useQuery<{ countries: ICountry[] }>(GET_COUNTRIES,{ variables : {filter} });
+}
+
+/** Consulta que obtiene el detalle del país seleccionado  **/
+export function ApiGetDetailCountry(id:DetailId)
+{
+    return useQuery<{ country: IDetailCountry }>(GET_DETAIL_COUNTRY,{variables: {code:id} });
 }
 
 /** Permite realizar la consulta y obtener el listado de continentes **/
