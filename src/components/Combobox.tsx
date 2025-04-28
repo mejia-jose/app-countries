@@ -36,19 +36,21 @@ export function Combobox({ data, text, valor, onValueChange } : ISelectProps)
       <Popover open={open} onOpenChange={setOpen}>
         <div>
           <PopoverTrigger asChild>
-            <Button
-              variant="outline"
-              role="combobox"
-              aria-expanded={open}
-              className="w-80 justify-between"
-            >
-              {
-                selectedValue 
-                  ? (data.find((item) => item.code === selectedValue)?.name || data.find((item) => item.code === selectedValue)?.currency)
-                  : text + "..."
-              }
-              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-            </Button>
+            <div>
+              <Button
+                variant="outline"
+                role="combobox"
+                aria-expanded={open}
+                className="w-80 justify-between"
+              >
+                {
+                  selectedValue 
+                    ? (data.find((item) => item.code === selectedValue)?.name || data.find((item) => item.code === selectedValue)?.currency)
+                    : text + "..."
+                }
+                <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+              </Button>
+            </div>
           </PopoverTrigger>
         </div>
         <div>
