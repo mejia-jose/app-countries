@@ -32,48 +32,60 @@ export function Combobox({ data, text, valor, onValueChange } : ISelectProps)
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
-      <PopoverTrigger asChild>
-        <Button
-          variant="outline"
-          role="combobox"
-          aria-expanded={open}
-          className="w-80 justify-between"
-        >
-          {
-            selectedValue 
-              ? (data.find((item) => item.code === selectedValue)?.name || data.find((item) => item.code === selectedValue)?.currency)
-              : text + "..."
-          }
-          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-        </Button>
-      </PopoverTrigger>
-      <PopoverContent className="w-80 p-0">
-        <Command>
-          <CommandInput placeholder="Search item..." />
-          <CommandList>
-            <CommandEmpty>No item found.</CommandEmpty>
-            <CommandGroup>
-              {data.map((item) => (
-                <CommandItem
-                  key={item.code}
-                  value={item.code}
-                  onSelect={() => handleValueChange(item.code)}
-                >
-                  <Check
-                    className={cn(
-                      "mr-2 h-4 w-4",
-                      selectedValue === item.code ? "opacity-100" : "opacity-0"
-                    )}
-                  />
-                  {item.currency ? item.currency : item.name}
-                </CommandItem>
-              ))}
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </PopoverContent>
-    </Popover>
+   <div>
+      <Popover open={open} onOpenChange={setOpen}>
+        <div>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              role="combobox"
+              aria-expanded={open}
+              className="w-80 justify-between"
+            >
+              {
+                selectedValue 
+                  ? (data.find((item) => item.code === selectedValue)?.name || data.find((item) => item.code === selectedValue)?.currency)
+                  : text + "..."
+              }
+              <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+            </Button>
+          </PopoverTrigger>
+        </div>
+        <div>
+          <PopoverContent className="w-80 p-0">
+            <div>
+              <Command>
+                <CommandInput placeholder="Search item..." />
+                 <div>
+                  <CommandList>
+                    <CommandEmpty>No item found.</CommandEmpty>
+                     <div>
+                      <CommandGroup>
+                        {data.map((item) => (
+                          <CommandItem
+                            key={item.code}
+                            value={item.code}
+                            onSelect={() => handleValueChange(item.code)}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                selectedValue === item.code ? "opacity-100" : "opacity-0"
+                              )}
+                            />
+                            {item.currency ? item.currency : item.name}
+                          </CommandItem>
+                        ))}
+                      </CommandGroup>
+                     </div>
+                  </CommandList>
+                 </div>
+              </Command>
+            </div>
+          </PopoverContent>
+        </div>
+      </Popover>
+   </div>
   );
 }
 
