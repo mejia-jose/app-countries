@@ -25,22 +25,22 @@ export function ListCountries(filters : IFormPropsUnique)
             <div className={getClassType}>
                 {data?.countries.map((country) => (
                     
-                    <Link to={`/country/${country.code}`} key={country.code}>
-                        <Card key={country.code} title={`Ver detalle de ${country.name}`}>
+                    <Card key={country.code} title={`Ver detalle de ${country.name}`}>
+                        <Link to={`/country/${country.code}`}>
                             <CardHeader>
-                                <CardTitle>{country.name}</CardTitle>
+                            <CardTitle>{country.name}</CardTitle>
                             </CardHeader>
                             <CardContent>
-                                <div key={country.code} className="">
-                                    <div className="text-4xl mb-2">{country.emoji}</div>
-                                    <p>Capital: {country.capital || 'N/A'}</p>
-                                    <span className="mt-2 inline-flex items-center color-text hover:underline">
-                                        <IconComponent size={20} className="mr-2" /> Ver detalle
-                                    </span>
-                                </div>
+                            <div className="">
+                                <div className="text-4xl mb-2">{country.emoji}</div>
+                                <p>Capital: {country.capital || 'N/A'}</p>
+                                <span className="mt-2 inline-flex items-center color-text hover:underline">
+                                <IconComponent size={20} className="mr-2" /> Ver detalle
+                                </span>
+                            </div>
                             </CardContent>
-                        </Card>
-                    </Link> 
+                        </Link>
+                    </Card>
                 ))}     
             </div>
         </>
