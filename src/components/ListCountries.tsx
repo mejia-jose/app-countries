@@ -7,6 +7,7 @@ import { ICountry,TFilterCountries } from "../types/country/country";
 import { GET_COUNTRIES } from "../graphql/queries";
 import ErrorCountries from "./ErrorComponent";
 import { IFormProps } from "../types/forms/forms";
+import IconsServices from "../services/icons/iconsServices";
 
 /** Componente que consulta la información de los paises, filtra y renderiza **/
 export function ListCountries(filterData : IFormProps)
@@ -40,26 +41,31 @@ export function ListCountries(filterData : IFormProps)
     };
     
     const getClassType = getClass(data?.countries.length || 0);
+    const IconComponent = IconsServices('eyes');
+    if(!IconComponent) return null;
 
     return (
         <>
             <div className={getClassType}>
                 {data?.countries.map((country) => (
-                    <Card key={country.name} >
-                        <CardHeader>
-                            <CardTitle>{country.name}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <div key={country.code} className="">
-                                <div className="text-4xl mb-2">{country.emoji}</div>
-                                <p>Capital: {country.capital || 'N/A'}</p>
-                                <Link to={`/country/${country.code}`}
-                                    className="mt-2 inline-block color-text hover:underline">
-                                    Ver más información
-                                </Link>
-                            </div>
-                        </CardContent>
-                    </Card>
+                    
+                    <Link to={`/country/${country.code}`}>
+                        <Card key={country.name} title={`Ver detalle de ${country.name}`}>
+                            <CardHeader>
+                                <CardTitle>{country.name}</CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <div key={country.code} className="">
+                                    <div className="text-4xl mb-2">{country.emoji}</div>
+                                    <p>Capital: {country.capital || 'N/A'}</p>
+                                    <Link to={`/country/${country.code}`}
+                                        className="mt-2 inline-flex items-center color-text hover:underline">
+                                    <IconComponent size={20} className="mr-2" /> Ver detalle
+                                    </Link>
+                                </div>
+                            </CardContent>
+                        </Card>
+                    </Link> 
                 ))}     
             </div>
         </>

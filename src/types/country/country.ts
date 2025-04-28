@@ -40,3 +40,8 @@ export interface IDetailCountry extends ICountry
 
   phone: string;
 }
+
+export type DetailId =
+{
+  id?: string;
+} 

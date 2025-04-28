@@ -1,8 +1,14 @@
 import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import { Button } from '../components/ui/Button';
+import IconsServices from '../services/icons/iconsServices';
 
+/** Página para mostrar en caso de contenido no encontrado a nivel de URLS **/
 const NotFound = () => {
+  
+  const IconComponent = IconsServices('go_back');
+  if(!IconComponent) return null;
+
   return (
     <div>
       <Header />
@@ -13,9 +19,9 @@ const NotFound = () => {
             <p className="mt-2 text-gray-600">Lo sentimos, la página que estás buscando no existe.</p>
            
             <Button asChild
-            className="mt-6 inline-block btn-color text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="mt-2 inline-flex items-center btn-color text-white py-2 px-4 rounded hover:bg-blue-600"
             variant="default"
-            > <a href="/">Volver al inicio</a>
+            > <a href="/"> <IconComponent size={10} className="mr-2" /> Volver al inicio</a>
             </Button>
         </div>
         </div>

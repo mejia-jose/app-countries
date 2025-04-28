@@ -2,17 +2,12 @@
 import { useQuery } from "@apollo/client";
 
 import { Card,CardContent} from "./ui/Card"
-import { IDetailCountry } from "../types/country/country";
+import { DetailId, IDetailCountry } from "../types/country/country";
 import { GET_DETAIL_COUNTRY } from "../graphql/queries";
 import ErrorCountries from "./ErrorComponent";
 
-type Props =
-{
-  id?: string;
-}  
-
 /** Este componente permite consultar la información de una país especifico y renderiza la información **/
-export function DetailCountry({id}: Props)
+export function DetailCountry({id}: DetailId)
 {
     /** Consulta que obtiene el detalle del país seleccionado  **/
     const { loading, error, data } = useQuery<{ country: IDetailCountry }>(GET_DETAIL_COUNTRY,

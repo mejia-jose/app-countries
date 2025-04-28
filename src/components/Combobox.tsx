@@ -38,7 +38,7 @@ export function Combobox({ data, text, valor, onValueChange } : ISelectProps)
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="w-90 justify-between"
+          className="w-80 justify-between"
         >
           {
             selectedValue 
