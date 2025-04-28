@@ -34,9 +34,17 @@ export function DetailCountry({id}: DetailId)
                     <p className="font-medium"><strong>Code:</strong> {code || 'N/A'}</p>
                     <p className="font-medium"><strong>Capital:</strong> {capital || 'N/A'}</p>
                     <p className="font-medium"><strong>Moneda:</strong> {currency || 'N/A'}</p>
-                    <p className="mb-2 font-medium"><strong>Lenguajes:</strong> {languages.length > 0 ? languages.map((language, index) => (
-                        <span key={index}>{language.name}{index < languages.length - 1 ? ', ' : ''}</span>
-                    )) : 'No disponible'}</p>
+                    <p className="mb-2 font-medium"><strong>Lenguajes:</strong>
+                        {languages.length > 0 ? (
+                            <span>
+                                {languages.map((language, index) => (
+                                    <span key={index}>
+                                        {language.name}{index < languages.length - 1 ? ', ' : ''}
+                                    </span>
+                                ))}
+                            </span>
+                        ) : 'No disponible'}
+                    </p>
                     <p className="font-medium"><strong>Continente:</strong> {continent?.name || 'N/A'}</p>
                     <p className="font-medium"><strong>Teléfono:</strong> +{phone || 'N/A'}</p>
                 </div>
