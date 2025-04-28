@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Card,CardContent,CardHeader,CardTitle} from "./ui/Card"
 import ErrorCountries from "./ErrorComponent";
 import { IFormPropsUnique } from "../types/forms/forms";
-import IconsServices from "../services/icons/iconsServices";
+import IconsServices from "../services/icons/IconsServices";
 import { ApiGetCountries, getClass } from "../services/api/ApiServices";
 
 /** Componente que consulta la información de los paises, filtra y renderiza **/

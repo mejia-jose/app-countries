@@ -1,7 +1,7 @@
 import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import { Button } from '../components/ui/Button';
-import IconsServices from '../services/icons/iconsServices';
+import IconsServices from '../services/icons/IconsServices';
 
 /** Página para mostrar en caso de contenido no encontrado a nivel de URLS **/
 const NotFound = () => {

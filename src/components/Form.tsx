@@ -5,7 +5,7 @@ import { Input } from "./ui/Input";
 import SelectContinents from "./SelectContinent";
 import SelectCurrency from "./SelectCurrency";
 import { IFormProps } from "../types/forms/forms";
-import IconsServices from "../services/icons/iconsServices";
+import IconsServices from "../services/icons/IconsServices";
 
 /** Componente que permite renderizar y manejar el estado del formulario de los filtros **/
 export function FormSearch({ filters } : IFormProps)

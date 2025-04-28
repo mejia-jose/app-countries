@@ -4,7 +4,7 @@ import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import DetailCountry from '../components/DetailCountry';
 import { Button } from '../components/ui/Button';
-import IconsServices from '../services/icons/iconsServices';
+import IconsServices from '../services/icons/IconsServices';
 
 /** Componente de la página para mostrar el detalle de un páis **/
 const Detail = () =>

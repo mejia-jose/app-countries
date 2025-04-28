@@ -1,4 +1,4 @@
-import {IconsServices} from '../services/icons/iconsServices';
+import {IconsServices} from '../services/icons/IconsServices';
 import { IconProps } from '../types/icons/IconProps';
 
 /** Permite manejar el componente de Iconos de la aplicación **/
