@@ -22,7 +22,7 @@ const NotFound = () => {
                 <Button asChild
                 className="mt-2 inline-flex items-center btn-color text-white py-2 px-4 rounded hover:bg-blue-600"
                 variant="default"
-                > <a href="/"> <IconComponent size={10} className="mr-2" /> Volver al inicio</a>
+                > <a href="/"> {/* <IconComponent size={10} className="mr-2" /> */} Volver al inicio</a>
                 </Button>
               </div>
           </div>

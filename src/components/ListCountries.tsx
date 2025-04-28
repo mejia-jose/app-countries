@@ -25,29 +25,31 @@ export function ListCountries(filters : IFormPropsUnique)
         <>
             <div className={getClassType}>
             {data?.countries.map((country) => (
-                <Card
-                key={country.code}
-                title={`Ver detalle de ${country.name}`}
-                className="cursor-pointer"
-                onClick={() => navigate(`/country/${country.code}`)}
-                >
-                    <div>
-                        <CardHeader>
-                            <CardTitle>{country.name}</CardTitle>
-                        </CardHeader>
-                    </div>
-                    <div>
-                        <CardContent>
-                            <div>
-                                <div className="text-4xl mb-2">{country.emoji}</div>
-                                <p>Capital: {country.capital || 'N/A'}</p>
-                                <span className="mt-2 inline-flex items-center color-text hover:underline">
-                                    <IconComponent size={20} className="mr-2" /> Ver detalle
-                                </span>
-                            </div>
-                        </CardContent>
-                    </div>
-                </Card>
+                <div>
+                    <Card
+                    key={country.code}
+                    title={`Ver detalle de ${country.name}`}
+                    className="cursor-pointer"
+                    onClick={() => navigate(`/country/${country.code}`)}
+                    >
+                        <div>
+                            <CardHeader>
+                                <CardTitle>{country.name}</CardTitle>
+                            </CardHeader>
+                        </div>
+                        <div>
+                            <CardContent>
+                                <div>
+                                    <div className="text-4xl mb-2">{country.emoji}</div>
+                                    <p>Capital: {country.capital || 'N/A'}</p>
+                                    <span className="mt-2 inline-flex items-center color-text hover:underline">
+                                        <IconComponent size={20} className="mr-2" /> Ver detalle
+                                    </span>
+                                </div>
+                            </CardContent>
+                        </div>
+                    </Card>
+                </div>
             ))}
             </div>
         </>

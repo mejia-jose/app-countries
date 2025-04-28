@@ -60,26 +60,26 @@ export function Combobox({ data, text, valor, onValueChange } : ISelectProps)
                 <CommandInput placeholder="Search item..." />
                  <div>
                   <CommandList>
-                    <CommandEmpty>No item found.</CommandEmpty>
-                     <div>
-                      <CommandGroup>
-                        {data.map((item) => (
-                          <CommandItem
-                            key={item.code}
-                            value={item.code}
-                            onSelect={() => handleValueChange(item.code)}
-                          >
-                            <Check
-                              className={cn(
-                                "mr-2 h-4 w-4",
-                                selectedValue === item.code ? "opacity-100" : "opacity-0"
-                              )}
-                            />
-                            {item.currency ? item.currency : item.name}
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                     </div>
+                      <div><CommandEmpty>No item found.</CommandEmpty></div>
+                      <div>
+                        <CommandGroup>
+                          {data.map((item) => (
+                            <CommandItem
+                              key={item.code}
+                              value={item.code}
+                              onSelect={() => handleValueChange(item.code)}
+                            >
+                              <Check
+                                className={cn(
+                                  "mr-2 h-4 w-4",
+                                  selectedValue === item.code ? "opacity-100" : "opacity-0"
+                                )}
+                              />
+                              {item.currency ? item.currency : item.name}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </div>
                   </CommandList>
                  </div>
               </Command>
