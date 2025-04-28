@@ -1,3 +1,5 @@
+import React from "react";
+
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/Card";
 import Error from '../assets/images/error.gif';
 import NotContent from '../assets/images/not_content.svg';
@@ -8,7 +10,7 @@ export function ErrorComponent({error,messages,title}: ErrorLoadingCountries)
 {
   const messageTitle = title ?? 'Error al obtener el listado de países.';
   return(
-   <>
+    <React.Fragment>
       <Card className='h-110 bg-card rounded-xl border text-card-foreground flex flex-col gap-6 p-2' style={{width: '90vw'}}>
           <CardHeader>
               <CardTitle> {messageTitle} </CardTitle>
@@ -37,7 +39,7 @@ export function ErrorComponent({error,messages,title}: ErrorLoadingCountries)
             </div>
           </CardContent>
       </Card>
-   </>
+    </React.Fragment>
   )
 }
 
