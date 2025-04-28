@@ -38,9 +38,9 @@ export function ListCountries(filters : IFormPropsUnique)
                     <div className="">
                     <div className="text-4xl mb-2">{country.emoji}</div>
                     <p>Capital: {country.capital || 'N/A'}</p>
-                    <span className="mt-2 inline-flex items-center color-text hover:underline">
+                   {/*  <span className="mt-2 inline-flex items-center color-text hover:underline">
                         <IconComponent size={20} className="mr-2" /> Ver detalle
-                    </span>
+                    </span> */}
                     </div>
                 </CardContent>
                 </Card>
