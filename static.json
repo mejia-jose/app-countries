@@ -1,0 +1,12 @@
+{
+    "routes": {
+      "/*": {
+        "headers": {
+          "Cache-Control": "no-cache, no-store, must-revalidate"
+        }
+      }
+    },
+    "rewrites": [
+      {"source": "**", "destination": "/index.html"}
+    ]
+  }
