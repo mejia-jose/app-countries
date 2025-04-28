@@ -19,11 +19,15 @@ const NotFound = () => {
               <p className="mt-2 text-gray-600">Lo sentimos, la página que estás buscando no existe.</p>
             
               <div>
-                <Button asChild
-                className="mt-2 inline-flex items-center btn-color text-white py-2 px-4 rounded hover:bg-blue-600"
-                variant="default"
-                > {/* <a href="/"> <IconComponent size={10} className="mr-2" /> Volver al inicio</a> */}
-                </Button>
+                <Button
+                    asChild
+                    className="mt-2 inline-flex items-center btn-color text-white py-2 px-4 rounded hover:bg-blue-600"
+                    variant="default"
+                  >
+                    <a href="/">
+                      <IconComponent size={18} className="mr-2" /> Volver al inicio
+                    </a>
+                  </Button>
               </div>
           </div>
         </div>
