@@ -37,7 +37,7 @@ function Home()
                 <div className="w-full"> <FormSearch filters={changeFilters}/> </div>
                  
                 {/* Tarjetas de contenido */}
-                <ListCountries filterData={filterData}/>   
+                <ListCountries filters={filterData}/>   
                   
               </div>
             </main>

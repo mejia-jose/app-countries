@@ -15,6 +15,7 @@ export type TFilterCountries =
   name?: { regex?: string };
   continent?: { in?: string[] };
   currency?: { regex?: string };
+  capital?: { regex?: string };
 }
 
 export interface ICurrency

@@ -48,7 +48,7 @@ export function Combobox({ data, text, valor, onValueChange } : ISelectProps)
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-90 p-0">
+      <PopoverContent className="w-80 p-0">
         <Command>
           <CommandInput placeholder="Search item..." />
           <CommandList>

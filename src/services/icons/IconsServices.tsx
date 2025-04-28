@@ -6,6 +6,7 @@ import {
     FaEye,
     FaArrowAltCircleLeft,   
 } from 'react-icons/fa'; 
+import { MdClearAll } from "react-icons/md";
 
 export function IconsServices(icon:string)
 {
@@ -29,6 +30,9 @@ export function IconsServices(icon:string)
         break;
       case 'go_back':
         IconComponent = FaArrowAltCircleLeft ;
+        break;
+      case 'clear':
+        IconComponent = MdClearAll;
         break;
       default:
         return null;

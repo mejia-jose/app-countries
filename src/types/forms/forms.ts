@@ -8,3 +8,12 @@ export interface IFormProps
         currency?: string;
    }) => void;
 }
+
+export interface IFormPropsUnique
+{
+    filters:{
+        search?: string;
+        continent?: string;
+        currency?: string;
+   }
+}
