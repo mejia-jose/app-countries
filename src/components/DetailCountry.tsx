@@ -1,11 +1,11 @@
 
 import React from "react";
-import { useQuery } from "@apollo/client";
+/* import { useQuery } from "@apollo/client"; */
 
 import { Card,CardContent} from "./ui/Card"
-import { DetailId, IDetailCountry } from "../types/country/country";
-import { GET_DETAIL_COUNTRY } from "../graphql/queries";
-import ErrorCountries from "./ErrorComponent";
+import { DetailId, /* IDetailCountry */ } from "../types/country/country";
+/* import { GET_DETAIL_COUNTRY } from "../graphql/queries";
+import ErrorCountries from "./ErrorComponent"; */
 
 /** Este componente permite consultar la información de una país especifico y renderiza la información **/
 export function DetailCountry({id}: DetailId)
@@ -26,6 +26,7 @@ export function DetailCountry({id}: DetailId)
             <Card className="h-auto bg-card mb-2 rounded-xl border text-card-foreground flex flex-col gap-6 p-4 
                 w-full md:w-[40vw] lg:w-[40vw] xl:w-[40vw]">
                 <CardContent>
+                <p>{ id }</p>
                 {/* <div key={code} className="bg-white rounded-lg max-w-md mx-auto text-left">
                     <div className="flex items-center justify-start space-x-4 mb-4">
                         <div className="text-4xl">{emoji}</div>
