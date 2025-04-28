@@ -11,14 +11,14 @@ import ErrorCountries from "./ErrorComponent";
 export function DetailCountry({id}: DetailId)
 {
     /** Consulta que obtiene el detalle del país seleccionado  **/
-    const { loading, error, data } = useQuery<{ country: IDetailCountry }>(GET_DETAIL_COUNTRY,
+    /* const { loading, error, data } = useQuery<{ country: IDetailCountry }>(GET_DETAIL_COUNTRY,
     {
         variables: {code:id}
-    });
+    }); */
 
-    if (loading) return <div className="text-center">Loading...</div>;
+   /*  if (loading) return <div className="text-center">Loading...</div>;
     if (error) return <div> <ErrorCountries messages={error.message} error={true} title="Error: No fue posible obtener la información del país."/> </div>;
-    if(!data || !data?.country) return <div> <ErrorCountries error={false} title='No se encontró información' /> </div>;
+    if(!data || !data?.country) return <div> <ErrorCountries error={false} title='No se encontró información' /> </div>; */
     //const {code,emoji,name,capital,currency,languages,phone,continent} = data.country;
 
     return (
