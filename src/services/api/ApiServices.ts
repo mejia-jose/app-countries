@@ -31,7 +31,7 @@ export function ApiGetCountries(filters: IFormPropsUnique)
 }
 
 /** Consulta que obtiene el detalle del país seleccionado  **/
-export function ApiGetDetailCountry(id:DetailId)
+export function ApiGetDetailCountry({id}:DetailId)
 {
     return useQuery<{ country: IDetailCountry }>(GET_DETAIL_COUNTRY,{variables: {code:id} });
 }
