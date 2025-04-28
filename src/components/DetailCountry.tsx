@@ -20,33 +20,33 @@ export function DetailCountry({id}: DetailId)
                 <Card className="h-auto bg-card mb-2 rounded-xl border text-card-foreground flex flex-col gap-6 p-4 
                     w-full md:w-[40vw] lg:w-[40vw] xl:w-[40vw]">
                     <div>
-                            <CardContent>
-                                <div key={code} className="bg-white rounded-lg max-w-md mx-auto text-left">
-                                    <div className="flex items-center justify-start space-x-4 mb-4">
-                                        <div className="text-4xl">{emoji}</div>
-                                        <div className="text-2xl font-semibold">{name}</div>
-                                    </div>
-
-                                    <div className="space-y-3 text-lg">
-                                        <p className="font-medium"><strong>Code:</strong> {code || 'N/A'}</p>
-                                        <p className="font-medium"><strong>Capital:</strong> {capital || 'N/A'}</p>
-                                        <p className="font-medium"><strong>Moneda:</strong> {currency || 'N/A'}</p>
-                                        <p className="mb-2 font-medium"><strong>Lenguajes:</strong>
-                                            {languages.length > 0 ? (
-                                                <span>
-                                                    {languages.map((language, index) => (
-                                                        <span key={index}>
-                                                            {language.name}{index < languages.length - 1 ? ', ' : ''}
-                                                        </span>
-                                                    ))}
-                                                </span>
-                                            ) : 'No disponible'}
-                                        </p>
-                                        <p className="font-medium"><strong>Continente:</strong> {continent?.name || 'N/A'}</p>
-                                        <p className="font-medium"><strong>Teléfono:</strong> +{phone || 'N/A'}</p>
-                                    </div>
+                        <CardContent>
+                            <div key={code} className="bg-white rounded-lg max-w-md mx-auto text-left">
+                                <div className="flex items-center justify-start space-x-4 mb-4">
+                                    <div className="text-4xl">{emoji}</div>
+                                    <div className="text-2xl font-semibold">{name}</div>
                                 </div>
-                            </CardContent>
+
+                                <div className="space-y-3 text-lg">
+                                    <p className="font-medium"><strong>Code:</strong> {code || 'N/A'}</p>
+                                    <p className="font-medium"><strong>Capital:</strong> {capital || 'N/A'}</p>
+                                    <p className="font-medium"><strong>Moneda:</strong> {currency || 'N/A'}</p>
+                                    <p className="mb-2 font-medium"><strong>Lenguajes:</strong>
+                                        {languages.length > 0 ? (
+                                            <span>
+                                                {languages.map((language, index) => (
+                                                    <span key={index}>
+                                                        {language.name}{index < languages.length - 1 ? ', ' : ''}
+                                                    </span>
+                                                ))}
+                                            </span>
+                                        ) : 'No disponible'}
+                                    </p>
+                                    <p className="font-medium"><strong>Continente:</strong> {continent?.name || 'N/A'}</p>
+                                    <p className="font-medium"><strong>Teléfono:</strong> +{phone || 'N/A'}</p>
+                                </div>
+                            </div>
+                        </CardContent>
                     </div>
                 </Card>
             </div>

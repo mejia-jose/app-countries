@@ -8,7 +8,9 @@ export function SelectCurrency({ value, onChange }: ISelectPropsGeneral)
   /**Se realiza la consulta para obtener el listado de las monedas(currency) **/
   const updatedInfo = ApiGetCurrencies();
   return(
-    <Combobox data={updatedInfo} valor={value} onValueChange={onChange} text="Seleccione una opción." /> 
+    <div>
+       <Combobox data={updatedInfo} valor={value} onValueChange={onChange} text="Seleccione una opción." /> 
+    </div>
   );
 }
 

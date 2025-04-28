@@ -8,7 +8,9 @@ export function SelectContinents({ value, onChange }: ISelectPropsGeneral)
   /** Se obtiene la información del  el listado de continentes **/
   const updatedInfo = ApiGetContinents();
   return(
-    <Combobox data={updatedInfo} valor={value} onValueChange={onChange} text="Seleccione un continente." /> 
+    <div>
+      <Combobox data={updatedInfo} valor={value} onValueChange={onChange} text="Seleccione un continente." />
+    </div> 
   )
 }
 
