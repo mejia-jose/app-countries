@@ -4,7 +4,7 @@ import {
   Alert,
   AlertDescription,
   AlertTitle,
-} from "./ui/alert"
+} from "./ui/Alert"
 
 export type TAlerProps =
 {
