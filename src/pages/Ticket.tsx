@@ -2,7 +2,7 @@ import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import { Button } from '../components/ui/Button';
 import IconsServices from '../services/icons/IconsServices';
-import { sellBoxOffice, TProps } from '../services/tickets/TicketServices';
+import { sellBoxOffice } from '../services/tickets/TicketServices';
 import Vania from '../assets/images/vania.png';
 import Vengadores from '../assets/images/vengadores.avif';
 import { useState } from 'react';
