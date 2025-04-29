@@ -4,6 +4,7 @@ import Icons from '../components/IconsLinks';
 /** Permite manejar el componente Header de la aplicación */
 function Header()
 {
+  
   return (
     <div className="toolbar bg-gray-800 text-white p-4 relative">
         <div className="container mx-auto flex flex-wrap items-center justify-between">

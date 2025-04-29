@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import '../App.css';
 import '../index.css';
@@ -25,14 +25,14 @@ function AppRouter() {
   if (loading) { return <Loanding />;} 
   return (
     <div className="App">
-      <Router>
+     <BrowserRouter basename="/">
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/country/:code" element={<Detail />} />
-            <Route path="/ticket" element={<Ticket />} />
-            <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/country/:code" element={<Detail />} />
+          <Route path="/ticket" element={<Ticket />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
-      </Router>
+      </BrowserRouter>
     </div> 
   );
 }

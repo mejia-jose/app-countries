@@ -42,6 +42,7 @@
 
 El fronten fue desarrollado con las siguientes tecnologías:
 
+  - npm version 10.9.0
   - Node.js versión 22.12.0
   - React versión 19.0.0
   - React Router versión 19.0.0
@@ -49,6 +50,7 @@ El fronten fue desarrollado con las siguientes tecnologías:
   - TypeScript
   - Tailwind CSS
   - ShadCN
+  - React Icons
 
 Revisar el package.json
 
@@ -58,7 +60,7 @@ Revisar el package.json
 
 - Url de producción:
 
-# La aplicación a nivel frontend fue desplegada en vercel
+# La aplicación fue desplegada en vercel
 # Url: https://app-countries-seven-fawn.vercel.app/
 
 
