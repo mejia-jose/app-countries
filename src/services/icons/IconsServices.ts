@@ -7,6 +7,7 @@ import {
     FaArrowAltCircleLeft,   
 } from 'react-icons/fa'; 
 import { MdClearAll } from "react-icons/md";
+import { RiShoppingBag4Fill } from "react-icons/ri";
 
 export function IconsServices(icon:string)
 {
@@ -33,6 +34,9 @@ export function IconsServices(icon:string)
         break;
       case 'clear':
         IconComponent = MdClearAll;
+        break;
+      case 'shopping':
+        IconComponent = RiShoppingBag4Fill;
         break;
       default:
         return null;

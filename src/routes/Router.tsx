@@ -7,6 +7,7 @@ import Loanding from '../layouts/Loanding';
 import Home from '../pages/Home';
 import Detail from '../pages/Detail';
 import NotFound from '../pages/404';
+import Ticket from '../pages/Ticket';
 
 /** Permite manejar las rutas de la aplicación **/
 function AppRouter() {
@@ -28,6 +29,7 @@ function AppRouter() {
         <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/country/:code" element={<Detail />} />
+            <Route path="/ticket" element={<Ticket />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

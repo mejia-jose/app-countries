@@ -28,7 +28,6 @@ export function FormSearch({ filters } : IFormProps)
         setSearch('');
         setContinent('');
         setCurrecy('');
-        console.log(setContinent(''))
     }
 
     const IconComponent = IconsServices('search');
