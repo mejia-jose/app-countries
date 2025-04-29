@@ -1,0 +1,177 @@
+<?php
+
+  session_start();
+
+  /** Se validan los billetes permitidos parav poder realizar la venta **/
+  function validateTickets($valor)
+  {
+    $billetes = [25,50,100];
+    $isValid = false;
+    if($valor > 0)
+    {
+        foreach ($billetes as $billete)
+        {
+            if($billete === $valor)
+            {
+              $isValid = true;
+              break;
+            }
+        }
+    }
+    return $isValid; 
+  }
+  
+  /** Se determina que la primera venta a realizar debe ser con un billete de 25 **/
+  function firstSale($valor, $taquilla)
+  {
+    $ventas = isset($_SESSION['ventas']) ? $_SESSION['ventas'] : [];
+    $isVenta = false;
+    
+    /** Si es la primera venta y es con un billete de 25, se guarda y se hace la venta **/
+    if($valor === $taquilla && count($ventas) <= 0)
+    {
+        array_push($ventas, $valor);
+        $_SESSION['ventas'] = $ventas;
+        $isVenta = true;
+    }else
+    {
+        /** Si ya hay ventas realizadas anteriormente **/
+        echo otherSales($valor);
+        return true;
+    }
+    
+    return $isVenta;
+  }
+
+   /** Core del algoritmo **/
+   function otherSales($valor)
+   {
+        /** Se definen los valores de los billetes para la devuelta y la venta **/
+        $minimo = 25;
+        $medio = $minimo * 2;
+        $alto = $minimo * 4;
+
+        if (!isset($_SESSION['ventas']))
+        {
+            $_SESSION['ventas'] = []; 
+        }
+
+        /** Compra con un billete de 25, se guarda la venta */
+        if ($valor === $minimo)
+        {
+            array_push($_SESSION['ventas'], $valor);
+            echo 'Venta realizada correctamente para un billete de '.$valor;
+            echo '</br>';
+            return true;
+        }
+
+        /** Si la compra es con un billete de 50 **/
+        if ($valor === $medio)
+        { 
+            /** Se recorren los valores de las ventas realizadas anteriormente **/
+            foreach ($_SESSION['ventas'] as $indice => $venta)
+            {
+                /** Se valida que una de loas valores de las ventas guardadas sea igual minimo(25) y se esa es la devuelta **/
+                if ($venta === $minimo)
+                {
+                    /** Se elimina el registro en el array de ventas **/
+                    unset($_SESSION['ventas'][$indice]);
+
+                    /** Se agrega el nuevo valor de la venta **/
+                    array_push($_SESSION['ventas'], $valor);
+                    echo '<br/>';
+                    echo 'Venta realizada correctamente y se dio devuelta de '.$minimo.' para un billete de '.$medio;
+                    return true;
+                    break;
+                }
+                
+            }
+
+            /** No fue posible realizar la venta, porque no habia devuelta **/
+            echo '<br/>';
+            echo 'No hay vuelto suficiente para realizar la venta con un billite de '.$valor;
+            return false;
+        }
+
+        /** Se valida si la venta es con un billete de 100 **/
+        if ($valor === $alto) { // $alto sería 100
+            $restarValores = []; // Sirve para guardar los registros que se utilicen para dar la devuelta
+            $devueltaFija = $alto - $minimo;
+            $contarDevuelta = 0;
+            $ventas = $_SESSION['ventas'];
+            $ventasTotal = count($_SESSION['ventas']);
+        
+            for ($i = 0; $i < $ventasTotal; $i++) 
+            {
+              
+                /** Se valida si se puede dar cambio con un billete de 50 y uno de 25 **/
+                if ($ventas[$i] === $minimo && $ventas[$i + 1] === $medio)
+                {
+                    $contarDevuelta = $ventas[$i] + $ventas[$i + 1];
+                    /** Se guardan los valores usados para la devolución **/
+                    array_push($restarValores, $i);
+                    array_push($restarValores, $i + 1);
+                }
+        
+                /** Se valida si se puede dar cambio con 3 billeste de 25 */
+                if ($ventas[$i] === $minimo && $ventas[$i + 1] === $minimo && $ventas[$i + 2] === $minimo)
+                {
+                    $contarDevuelta = $ventas[$i] + $ventas[$i + 1] + $ventas[$i + 2];
+                    /** Se guardan los valores usados para la devolución **/
+                    array_push($restarValores, $i);
+                    array_push($restarValores, $i + 1);
+                    array_push($restarValores, $i + 2);
+                }
+        
+                /** Se valida si se tiene el total para la devolución **/
+                if ($contarDevuelta === $devueltaFija) 
+                {
+                    /** Se eliminan los valores usados para la devolución **/
+                    foreach ($restarValores as $indiceEliminar)
+                    {
+                        unset($_SESSION['ventas'][$indiceEliminar]);
+                    }
+        
+                    /** Se reorganiza el arreglo de ventas **/
+                    $_SESSION['ventas'] = array_values($_SESSION['ventas']);
+        
+                    /** Se agrega el nuevo billete (100) **/
+                    array_push($_SESSION['ventas'], $valor);
+        
+                    echo 'Venta realizada correctamente y se dio devuelta de ' . $devueltaFija . ' para un billete de ' . $alto;
+                    return true; 
+                }
+            }
+        
+            echo '<br/>';
+            echo 'No se puede dar cambio para un billete de ' . $alto;
+            return false;
+        }
+        
+    }
+  
+  /** Punto de entrada al algoritmo de ventas**/
+  function sellBoxOffice($valor)
+  {
+      $result = validateBillites($valor);
+      if(!$result)
+      {
+        echo '<br/>';
+        echo 'El billete ingresado no esta permitido para realizar la venta.';
+        return false;
+      }
+      
+      $res = firstSale($valor, 25);
+      if(!$res)
+      {
+        echo '<br/>';
+        echo 'Es la primera venta y no puedo recibir un billete mayor a 25.';
+        return false;
+      }
+  }
+  
+  echo sellBoxOffice(100);
+  echo '<br/>';
+  //unset($_SESSION['ventas']);
+  echo json_encode($_SESSION['ventas']);
+?>
