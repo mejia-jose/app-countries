@@ -20,6 +20,7 @@ function Header()
         </div>
         
             <div className="hidden md:flex items-center gap-4">
+                <Icons icon='shopping' color='white' size={24} link='/ticket'/>
                 <Icons icon='twitter' color='white' size={24} link='https://x.com/?lang=es'/>
                 <Icons icon='youtube' color='white' size={24} link='https://www.youtube.com'/>
                 <Icons icon='facebook' color='white' size={24} link='https://www.facebook.com'/>

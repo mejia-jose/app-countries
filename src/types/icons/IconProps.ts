@@ -7,4 +7,4 @@ export type IconProps =
   link: string; 
 };
 
-type IconsAllowed = 'twitter' | 'youtube' | 'facebook' | 'search';
+type IconsAllowed = 'twitter' | 'youtube' | 'facebook' | 'search' | 'shopping';
