@@ -1,8 +1,8 @@
 
 export type TProps =
 {
-    state:boolean;
-    messages: string;
+    state?:boolean;
+    messages?: string;
 }
 /** Se validan los billetes permitidos parav poder realizar la venta **/
 function validateTickets(valor: number)
@@ -30,7 +30,7 @@ function firstSale(valor: number, taquilla: number)
 }
 
 /** Punto de entrada al algoritmo de ventas**/
-export function sellBoxOffice(valor:number)
+export function sellBoxOffice(valor:number):TProps
 {
     const FIRST_SALES = 25
     const result = validateTickets(valor);

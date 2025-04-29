@@ -8,12 +8,11 @@ import {
 
 export type TAlerProps =
 {
-    type?: 'default' | 'destructive' | 'success';
     isError: boolean;
     messages: string;
 }
 
-export function AlertDestructive({type,isError,messages} : TAlerProps) 
+export function AlertDestructive({isError,messages} : TAlerProps) 
 {
    const errorMessage = !isError ? 'Error' : 'Venta exitosa';
     return (

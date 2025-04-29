@@ -2,7 +2,7 @@ import Header from '../layouts/Header';
 import Footer from '../layouts/Footer';
 import { Button } from '../components/ui/Button';
 import IconsServices from '../services/icons/IconsServices';
-import { sellBoxOffice } from '../services/tickets/TicketServices';
+import { sellBoxOffice, TProps } from '../services/tickets/TicketServices';
 import Vania from '../assets/images/vania.png';
 import Vengadores from '../assets/images/vengadores.avif';
 import { useState } from 'react';
@@ -25,10 +25,12 @@ const Ticket = () =>
     e.preventDefault();
     setTicket(ticket)
     const result = sellBoxOffice(ticket);
-    if(result?.messages || result?.state)
-    {
-      setState(result?.state);
-      setMessages(result?.messages);
+    if(result)
+    { 
+      const isState = result.state ? result?.state : false;
+      const isMessages = result.messages ? result?.messages : '';
+      setState(isState);
+      setMessages(isMessages);
     }
   }
  
