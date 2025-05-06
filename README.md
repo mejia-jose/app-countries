@@ -1,6 +1,4 @@
 # React + TypeScript + Vite + GraphQL
-
-1. Punto número uno de la prueba técnica
   
   #Descripción de la app
 
@@ -30,7 +28,6 @@
 
   5. Header, Footer, Iconos
 
-2. Ejercicio de algoritmo:
   - Solución:
     Se creó una primera versión en PHP archivo(src\assets\TicketServices.txt) y una segunda versión implementada en la ruta app-countries\src\services\tickets\TicketServices.ts.
     Además, se desarrolló una página que permite simular la compra de boletos y calcular la devolución según el billete seleccionado (mediante una lista desplegable).
